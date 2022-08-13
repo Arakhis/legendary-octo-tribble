@@ -1,0 +1,69 @@
+{% extends 'main.html' %}
+
+{% block title %}Transactions - Weeble{% endblock %}
+
+{% block main %}
+<div id="main_window" class="row">
+    <div id="main_menu" class="col-2">
+        <div class="manmenu">
+        <nav class="nav flex-column">
+            <li class="nav-item">
+                <a class="navbar-brand" href="/main"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/navigation/home_work/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Home</a>
+            </li>
+            <hr>
+            <li class="nav-item">
+                <a class="navbar-brand" href="/address"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/editor/format_list_numbered/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Addresses</a>
+            </li>
+            <hr>
+            <li class="nav-item">
+                <a class="navbar-brand active" href="/txs"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/action/receipt/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Transactions</a>
+            </li>
+            <hr>
+            <li class="nav-item">
+                <a class="navbar-brand" href="/send"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/communication/call_split/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Send</a>
+            </li>
+            <hr>
+            <li class="nav-item">
+                <a class="navbar-brand" href="/logout"><img class="menuitemimg" src="https://raw.githubusercontent.com/google/material-design-icons/master/src/navigation/cancel/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Logout</a>
+            </li>
+        </nav>
+        </div>
+    </div>
+    <div id="current_content" class="col-10">
+        <h3 class="centred">Transactions</h3>
+        <div class="mancon">
+            <table class="table table-info table-striped-columns table-fix" id="5latesttx">
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>TX ID</th>
+                        <th>Destination address</th>
+                        <th>Time</th>
+                        <th>Confirmations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% autoescape false %}
+                    {{latest20tx}}
+                {% endautoescape %}
+                </tbody>
+            </table>
+        </div>
+        {% autoescape false %}
+        {{pagination}}
+        {% endautoescape %}
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+        <div class="h-15 row">
+            <div class="col-8">
+            </div>
+            <div class="col-4">
+                <p class="ftr">
+                    Powered by Arakhis
+                    <br>Based on HTML5
+                </p>
+            </div>
+        </div>
+ {% endblock %}

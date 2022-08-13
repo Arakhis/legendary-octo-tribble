@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="/static/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/static/js/script.js"></script>
+    <link type="text/css" rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="/static/css/style.css"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/fav/favicon-16x16.png">
+    <link rel="manifest" href="/static/images/fav/site.webmanifest">
+    <link rel="mask-icon" href="/static/images/fav/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/static/images/fav/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/static/images/fav/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>{% block title %}Weeble - decentralized Bitcoin wallet{% endblock %}</title>
+
+    <div class="container header">
+        <div class="h-15 row clearfix">
+            <div class="col-8">
+                <a href="/"><img id="logo" class="logo" src="/static/images/logo.png" /></a>
+            </div>
+            <div class="col-4">
+                <h5 class="tcr">{{ticker_price}}$ BTC</h5>
+            </div>
+        </div>
+    </div>
+</head>
+
+<body>
+    <!-- Start your code here -->
+    <div class="container baddy">
+   {% block content %}
+        <div class="row">
+            <div class="col-3 opis flex-column">
+                <p><h3>Weeble</h3> - decentralized Bitcoin wallet with support of most known <a href="https://en.wikipedia.org/wiki/Bitcoin_Improvement_Proposals">BIP</a>. We do not have access to your wallets and coins. </p>
+                <p>New wallets generated using by crypto-calculating your browser entropy. You can access your coins in any wallet that supports <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">BIP-39</a>.</p>
+                <p>Wallet supports specifying up to 10 coin receivers in one transaction and have batch address generator and BTC mixing technology <a href="https://en.bitcoin.it/wiki/CoinJoin">CoinJoin</a>.</p>
+            </div>
+            <div class="col-6 logreg">
+                <div class="row indexlogo" id="indexlogo">
+                    <img id="inlogo" class="inlogo" src="/static/images/logo.png" />
+                </div>
+                <div class="row indexBtns">
+                    <button type="button" class="btn btn-default btn-lg log" href="#" id="logBtn" onclick="showLoginField()">Login</button>
+                    <a role="button" class="btn btn-primary btn-lg reg" href="/register" id="regBtn">Create new wallet</a>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    {% endblock %}
+    </div>
+    <!-- End your code here -->
+</body>
+<footer>
+    <div class="container footer">
+        {% block footer %}
+        <div class="h-15 row">
+            <div class="col-8"></div>
+            <div class="col-4">
+                <p class="ftr">
+                    Powered by Arakhis
+                    <br>Based on HTML5
+                </p>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+</footer>
+
+</html>

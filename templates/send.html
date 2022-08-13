@@ -1,0 +1,96 @@
+{% extends 'main.html' %}
+
+{% block title %}Send - Weeble{% endblock %}
+
+{% block main %}
+<div id="main_window" class="row">
+    <div id="main_menu" class="col-2">
+        <div class="manmenu">
+        <nav class="nav flex-column">
+            <li class="nav-item">
+                <a class="navbar-brand" href="/main"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/navigation/home_work/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Home</a>
+            </li>
+            <hr>
+            <li class="nav-item">
+                <a class="navbar-brand" href="/address"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/editor/format_list_numbered/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Addresses</a>
+            </li>
+            <hr>
+            <li class="nav-item">
+                <a class="navbar-brand" href="/txs"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/action/receipt/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Transactions</a>
+            </li>
+            <hr>
+            <li class="nav-item">
+                <a class="navbar-brand active" href="/send"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/communication/call_split/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Send</a>
+            </li>
+            <hr>
+            <li class="nav-item">
+                <a class="navbar-brand" href="/logout"><img class="menuitemimg" src="https://raw.githubusercontent.com/google/material-design-icons/master/src/navigation/cancel/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Logout</a>
+            </li>
+        </nav>
+        </div>
+    </div>
+    <div id="current_content" class="col-10">
+        <h4 class="centred">Create output transaction</h4>
+            <div class="mancon">
+            <form class="row g-3 table-fix">
+                <div id="rec-addresses" class="col-9 sendaddr">
+                    <label for="to_address0" data-tooltip="Up to 10 addresses in a time" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="to_address0" value="" placeholder="Address">
+                </div>
+                <div id="rec-sums" class="col-2 sendsum">
+                    <label for="sum0" data-tooltip="Enter amount in BTC. In ex. 0.00004123" class="form-label">Value</label>
+                    <input type="text" class="form-control" id="sum0" value="" placeholder="Value">
+                </div>
+                <div id="addrBtns" class="col-1 sendAddrBtn">
+                    <hr>
+                    <button type="button" class="btn btn-primary moreAddr" id="moreAddr" onclick="addAddrNew(1)"><img src="https://github.com/google/material-design-icons/raw/master/src/editor/add_comment/materialiconsoutlined/24px.svg"></button>
+                </div>
+            </form>
+            </div>
+            <hr>
+            <div class="row g-3 comissionrow" id="comission-content">
+                <div id="rec-comis" class="col-2 rec-comis">
+                    <h6 class="centred"><a href="#" data-tooltip="Estimated fee to be included in current block">Recommended<br> fee</a></h6><br>
+                    <h5 class="centred">{{recComis}}</h5><br>
+                    <h5 class="centred">sat/vByte</h5>
+                </div>
+                <div id="tx-size" class="col-2 tx-size">
+                    <a class="sb-left"></a>
+                    <h6 class="centred"><a href="#" data-tooltip="Weight of your transaction in vBytes. Lesser when use Bech32">TX<br> size</a></h6><br>
+                    <h5 class="centred">{{recComis}}</h5><br>
+                    <h5 class="centred">vBytes</h5>
+                </div>
+                <div id="user-comis" class="col-5 user-comis">
+                    <a class="sb-left"></a>
+                    <h6 class="centred">Set<br> custom fee</h6><br>
+                    <input type="range" class="form-range" min="1" max="256" step="1" id="fee_range" oninput="this.nextElementSibling.value = this.value">
+                    <output id="set_comis" class="centred">{{recComis}}</output>
+                    <label for="fee_range" class="form-label centred">satoshis/vByte</label>
+                </div>
+                <div id="gen-tx" class="col-3 indexBtns">
+                    <a class="sb-left"></a>
+                    <input type="text" class="form-control-plaintext centred" id="totalFee" value="0 BTC">
+                    <button type="button" data-tooltip="I only take 3000 satoshis for tx :)" class="btn btn-info centred" onclick="calcFees()"><img src="https://raw.githubusercontent.com/google/material-design-icons/c9e552847da3445dec2e384e9e2e7230efaca468/src/action/add_task/materialiconsoutlined/24px.svg">Calculate fee</button>
+                </div>
+            </div>
+            <hr>
+            <div id="pushTX" class="row g-3">
+                <div class="col pushtx">
+                <button type="button" class="btn btn-primary centred disabled" onclick="pushTx()"><img src="https://raw.githubusercontent.com/google/material-design-icons/master/src/action/rocket_launch/materialiconsoutlined/24px.svg">Send</button>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+        <div class="h-15 row">
+            <div class="col-8">
+            </div>
+            <div class="col-4">
+                <p class="ftr">
+                    Powered by Arakhis
+                    <br>Based on HTML5
+                </p>
+            </div>
+        </div>
+ {% endblock %}
