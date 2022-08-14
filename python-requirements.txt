@@ -1,0 +1,13 @@
+### python 3.8+
+cryptos git
+bitcoinlib
+hdwallet
+base58
+json
+btclib
+bitcoin
+pyxtension
+flask
+numpy
+qrcode
+requests
