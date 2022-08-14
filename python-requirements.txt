@@ -11,3 +11,4 @@ flask
 numpy
 qrcode
 requests
+mnemonic
