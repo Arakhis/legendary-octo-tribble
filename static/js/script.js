@@ -1,9 +1,10 @@
 // Write JavaScript here 
 function showLoginField() {
-    var str = document.createElement('input');
+    var str = document.createElement('textarea');
         str.id = 'mnemo';
-        str.className = 'form-control input-lg';
+        str.className = 'form-text';
         str.setAttribute('value', '');
+        str.setAttribute('rows', 7);
     var row = document.getElementById('indexlogo');
         row.appendChild(str);
     var str2 = '<a role="button" class="btn btn-default btn-lg log" href="/main" id="logBtn" onclick="login()">Login</a>';
@@ -28,7 +29,7 @@ function login() {
         url: "/login",
         async: false,
         contentType: "application/json",
-        data: JSON.stringify({ 'mnemonic_phrase': mnemo.value })
+        data: JSON.stringify({ 'mnemonic_phrase': mnemo.innerHTML })
     });
 }
 
@@ -116,7 +117,34 @@ function calcFees() {
         url: "/send",
         async: false,
         contentType: "application/json",
-        data: JSON.stringify({ "addresses": addrList, "sums": sumaList, "fee": fee })
+        data: JSON.stringify({ "addresses": addrList, "sums": sumaList, "fee": fee }),
+        success: function (data, textStatus, jqXHR){
+            if (data.status == 1){
+                var sendbtn = document.getElementById('sendbtn');
+                var truesend = document.createElement('button');
+                    truesend.className = 'btn btn-default centred';
+                    truesend.setAttribute('onclick', 'send()');
+                    truesend.innerHTML = '<img src="https://raw.githubusercontent.com/google/material-design-icons/master/src/action/rocket_launch/materialiconsoutlined/24px.svg">Send';
+                    truesend.id = 'sendbtn';
+                sendbtn.outerHTML = truesend;
+                var rawtxhidden = document.createElement('span');
+                    rawtxhidden.setAttribute('style', 'visually-hidden');
+                    rawtxhidden.id = 'rawtx';
+                    rawtxhidden.innerHTML = data.rawtx;
+                sendbtn.appendChild(rawtxhidden);
+                var txsize = document.getElementById('txsize');
+                    txsize.innerHTML = data.size;
+                var totalfee = document.getElementById('totalFee');
+                    totalfee.value = ((data.size * fee + 3000) / 100000000);
+            } else {
+                var place = document.getElementById('mancon');
+                var alert = document.createElement('div');
+                    alert.className = 'alert alert-danger';
+                    alert.setAttribute('role', 'alert');
+                    alert.innerHTML = 'Please check you are correct!';
+                place.parentNode.insertBefore(alert, place);
+            }
+        }
     });
 }
 
@@ -148,7 +176,7 @@ function generateAddrs() {
     divBtn.outerHTML = loading.outerHTML;
     var lovBtn = document.createElement('button');
         lovBtn.setAttribute('type', 'button');
-        lovBtn.setAttribute('onclick', 'generateAddrs()')
+        lovBtn.setAttribute('onclick', 'generateAddrs(used=true)');
         lovBtn.className = 'btn btn-warning';
         lovBtn.innerHTML = '<img src="https://github.com/google/material-design-icons/raw/master/src/device/settings_suggest/materialiconsoutlined/24px.svg">';
     var lovBtnDiv = document.createElement('div');
@@ -158,11 +186,15 @@ function generateAddrs() {
     var genAddr = document.getElementById('gen-addr');
     var count = document.getElementById('count').value;
     var Stype = document.getElementById('script-type').value;
-    var genAgain = $.getJSON('/address/generate', { 'count': count, 'type': Stype }, async function(data, textStatus, jqXHR){
+    var genAgain = $.getJSON('/address/generate', { 'count': count, 'type': Stype }, function(data, textStatus, jqXHR){
+            if (used == true){
+            document.getElementById('generated-addresses').remove();
+            }
             var textnode = document.createElement('textarea');
             textnode.setAttribute('wrap', 'hard');
             textnode.setAttribute('rows', count);
             textnode.className = 'form-text generated-addresses';
+            textnode.id = 'generated-addresses';
             textnode.setAttribute('col', '35');
             addrs = JSON.stringify(data.new_addrs);
             adres = addrs.replace(/,/g, '\n');
@@ -173,6 +205,6 @@ function generateAddrs() {
             var now = document.getElementById('loadingGen');
             now.outerHTML = lovBtnDiv.outerHTML;
             genAddr.appendChild(textnode);
-    });
+            });
 }
 
