@@ -1,6 +1,6 @@
 {% extends 'main.html' %}
 
-{% block title %}Transactions - Weeble{% endblock %}
+{% block title %}{{ _('Transactions') }} - Weeble{% endblock %}
 
 {% block main %}
 <div id="main_window" class="row">
@@ -8,38 +8,38 @@
         <div class="manmenu">
         <nav class="nav flex-column">
             <li class="nav-item">
-                <a class="navbar-brand" href="/main"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/navigation/home_work/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Home</a>
+                <a class="navbar-brand" href="/main"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/navigation/home_work/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>{{ _('Home') }}</a>
             </li>
             <hr>
             <li class="nav-item">
-                <a class="navbar-brand" href="/address"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/editor/format_list_numbered/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Addresses</a>
+                <a class="navbar-brand" href="/address"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/editor/format_list_numbered/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>{{ _('Addresses') }}</a>
             </li>
             <hr>
             <li class="nav-item">
-                <a class="navbar-brand active" href="/txs"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/action/receipt/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Transactions</a>
+                <a class="navbar-brand active" href="/txs"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/action/receipt/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>{{ _('Transactions') }}</a>
             </li>
             <hr>
             <li class="nav-item">
-                <a class="navbar-brand" href="/send"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/communication/call_split/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Send</a>
+                <a class="navbar-brand" href="/send"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/communication/call_split/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>{{ _('Send') }}</a>
             </li>
             <hr>
             <li class="nav-item">
-                <a class="navbar-brand" href="/logout"><img class="menuitemimg" src="https://raw.githubusercontent.com/google/material-design-icons/master/src/navigation/cancel/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Logout</a>
+                <a class="navbar-brand" href="/logout"><img class="menuitemimg" src="https://raw.githubusercontent.com/google/material-design-icons/master/src/navigation/cancel/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>{{ _('Logout') }}</a>
             </li>
         </nav>
         </div>
     </div>
     <div id="current_content" class="col-10">
-        <h3 class="centred">Transactions</h3>
+        <h3 class="centred">{{ _('Transactions') }}</h3>
         <div class="mancon">
             <table class="table table-info table-striped-columns table-fix" id="5latesttx">
                 <thead>
                     <tr>
-                        <th>Value</th>
-                        <th>TX ID</th>
-                        <th>Destination address</th>
-                        <th>Time</th>
-                        <th>Confirmations</th>
+                        <th>{{ _('Value') }}</th>
+                        <th>{{ _('TX ID') }}</th>
+                        <th>{{ _('Destination address') }}</th>
+                        <th>{{ _('Time') }}</th>
+                        <th>{{ _('Confirmations') }}</th>
                     </tr>
                 </thead>
                 <tbody>

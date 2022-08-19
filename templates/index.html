@@ -18,7 +18,7 @@
     <meta name="msapplication-config" content="/static/images/fav/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
-    <title>{% block title %}Weeble - decentralized Bitcoin wallet{% endblock %}</title>
+    <title>{% block title %}Weeble - {{ _('decentralized Bitcoin wallet') }}{% endblock %}</title>
 
     <div class="container header">
         <div class="h-15 row clearfix">
@@ -38,17 +38,17 @@
    {% block content %}
         <div class="row">
             <div class="col-3 opis flex-column">
-                <p><h3>Weeble</h3> - decentralized Bitcoin wallet with support of most known <a href="https://en.wikipedia.org/wiki/Bitcoin_Improvement_Proposals">BIP</a>. We do not have access to your wallets and coins. </p>
+                <p><h3>Weeble</h3> - {{ _('decentralized Bitcoin wallet with support of most known <a href="https://en.wikipedia.org/wiki/Bitcoin_Improvement_Proposals">BIP</a>. We do not have access to your wallets and coins. </p>
                 <p>New wallets generated using by crypto-calculating your browser entropy. You can access your coins in any wallet that supports <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">BIP-39</a>.</p>
-                <p>Wallet supports specifying up to 10 coin receivers in one transaction and have batch address generator and BTC mixing technology <a href="https://en.bitcoin.it/wiki/CoinJoin">CoinJoin</a>.</p>
+                <p>Wallet supports specifying up to 10 coin receivers in one transaction and have batch address generator and BTC mixing technology') }} <a href="https://en.bitcoin.it/wiki/CoinJoin">CoinJoin</a>.</p>
             </div>
             <div class="col-6 logreg">
                 <div class="row indexlogo" id="indexlogo">
                     <img id="inlogo" class="inlogo" src="/static/images/logo.png" />
                 </div>
                 <div class="row indexBtns">
-                    <button type="button" class="btn btn-default btn-lg log" href="#" id="logBtn" onclick="showLoginField()">Login</button>
-                    <a role="button" class="btn btn-primary btn-lg reg" href="/register" id="regBtn">Create new wallet</a>
+                    <button type="button" class="btn btn-default btn-lg log" href="#" id="logBtn" onclick="showLoginField()">{{ _('Login') }}</button>
+                    <a role="button" class="btn btn-primary btn-lg reg" href="/register" id="regBtn">{{ _('Create new wallet') }}</a>
                 </div>
             </div>
             <div class="col-3"></div>

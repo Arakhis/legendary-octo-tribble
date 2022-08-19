@@ -1,6 +1,6 @@
 {% extends 'main.html' %}
 
-{% block title %}Addresses - Weeble{% endblock %}
+{% block title %}{{ _('Addresses') }} - Weeble{% endblock %}
 
 {% block main %}
 <div id="main_window" class="row">
@@ -8,57 +8,57 @@
         <div class="manmenu">
         <nav class="nav flex-column">
             <li class="nav-item">
-                <a class="navbar-brand" href="/main"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/navigation/home_work/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Home</a>
+                <a class="navbar-brand" href="/main"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/navigation/home_work/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>{{ _('Home') }}</a>
             </li>
             <hr>
             <li class="nav-item">
-                <a class="navbar-brand active" href="/address"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/editor/format_list_numbered/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Addresses</a>
+                <a class="navbar-brand active" href="/address"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/editor/format_list_numbered/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>{{ _('Addresses') }}</a>
             </li>
             <hr>
             <li class="nav-item">
-                <a class="navbar-brand" href="/txs"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/action/receipt/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Transactions</a>
+                <a class="navbar-brand" href="/txs"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/action/receipt/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>{{ _('Transactions') }}</a>
             </li>
             <hr>
             <li class="nav-item">
-                <a class="navbar-brand" href="/send"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/communication/call_split/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Send</a>
+                <a class="navbar-brand" href="/send"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/communication/call_split/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>{{ _('Send') }}</a>
             </li>
             <hr>
             <li class="nav-item">
-                <a class="navbar-brand" href="/logout"><img class="menuitemimg" src="https://raw.githubusercontent.com/google/material-design-icons/master/src/navigation/cancel/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Logout</a>
+                <a class="navbar-brand" href="/logout"><img class="menuitemimg" src="https://raw.githubusercontent.com/google/material-design-icons/master/src/navigation/cancel/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>{{ _('Logout') }}</a>
             </li>
         </nav>
         </div>
     </div>
     <div id="current_content" class="col-10">
-        <h5 class="centred">Address generator</h5>
+        <h5 class="centred">{{ _('Address generator') }}</h5>
         <div id="gen-addr" class="gen-addr row">
             <div class="col-6">
-                <label for="count" class="form-label centred">Amount</label>
+                <label for="count" class="form-label centred">{{ _('Amount') }}</label>
                 <input type="text" id="count" class="form-control" aria-describedby="count-memo">
-                <span id="count-memo" class="form-text">Up to 100 string a time</span>
+                <span id="count-memo" class="form-text">{{ _('Up to 100 string a time') }}</span>
             </div>
             <div class="col-4">
-                <label for="script-type" class="form-label centred">Script type</label>
+                <label for="script-type" class="form-label centred">{{ _('Script type') }}</label>
                 <select id="script-type" class="form-select" aria-describedby="script-type-memo">
                     <option selected value="3">Segwit-compatible (3***)</option>
                     <option value="1">Legacy (old-style 1***)</option>
                     <option value="2">Native Segwit (bc***)</option>
                 </select>
-                <span id="script-type-memo" data-tooltip="P2PKH - pay to private key hash, old-style 1** address, uses more weight in tx and causes more expensive fees. P2WSH in P2SH - pay to witness script hash nested in pay to script hash, address type start with 3**, uses less weight than P2PKH and much modern. P2WPKH - pay to witness public key hash, newest and powerful address type, starts with bc***. Uses weight less than other types." class="form-text">P2PKH, P2WSH in P2SH, P2WPKH</span>
+                <span id="script-type-memo" data-tooltip="{{ _('P2PKH - pay to private key hash, old-style 1** address, uses more weight in tx and causes more expensive fees. P2WSH in P2SH - pay to witness script hash nested in pay to script hash, address type start with 3**, uses less weight than P2PKH and much modern. P2WPKH - pay to witness public key hash, newest and powerful address type, starts with bc***. Uses weight less than other types.') }}" class="form-text">P2PKH, P2WSH in P2SH, P2WPKH</span>
             </div>
             <div id="genBtn" class="col-2 gen-addr">
-                <button type="button" class="btn btn-info" style="width:100%;" onclick="generateAddrs()"><img src="https://github.com/google/material-design-icons/raw/master/src/device/settings_suggest/materialiconsoutlined/24px.svg"></button>
+                <button type="button" class="btn btn-info" style="width:100%;" onclick="generateAddrs(used=false)"><img src="https://github.com/google/material-design-icons/raw/master/src/device/settings_suggest/materialiconsoutlined/24px.svg"></button>
             </div>
             <hr>
         </div>
 
-        <h5 class="centred">Used addresses</h5>
+        <h5 class="centred">{{ _('Used addresses') }}</h5>
         <div class="mancon">
             <table class="table table-info table-striped-columns table-fix" id="5latesttx">
                 <thead>
                     <tr>
-                        <th>Is Used</th>
-                        <th>Address</th>
+                        <th>{{ _('Is Used') }}</th>
+                        <th>{{ _('Address') }}</th>
                     </tr>
                 </thead>
                 <tbody>

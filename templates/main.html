@@ -1,13 +1,13 @@
 {% extends 'register.html' %}
 
-{% block title %}Wallet - Weeble{% endblock %}
+{% block title %}{{ _('Wallet') }} - Weeble{% endblock %}
 
 {% block content %}
 <div id="overall" class="row overall" xmlns="http://www.w3.org/1999/html">
     <div id="balance" class="col-2">
         <div class="balance centred">
             <hr>
-            <h6>Overall balance:</h6>
+            <h6>{{ _('Overall balance:') }}</h6>
             <hr>
             <h5>{{balance}} BTC</h5>
             <h5>~{{convertedBalance}} $</h5>
@@ -16,7 +16,7 @@
     <div id="current-qrcode" class="col-2">
         <div class="qrcodeblock">
             {% autoescape false %}
-            <span id="curQR" data-tooltip="QR code for Segwit address" class="qrcode">{{curQrcode}}</span>
+            <span id="curQR" data-tooltip="{{ _('QR code for Segwit address') }}" class="qrcode">{{curQrcode}}</span>
             {% endautoescape %}
         </div>
     </div>
@@ -42,7 +42,7 @@
     </div>
     <div id="current_address_change_btn" class="col-1 current-address-change">
         <div class="current-address-change-btn">
-            <button id="changeAddrsBtn" type="button" data-tooltip="Generate new address for each script type" class="btn btn-outline-light" onclick="changeAddrs()" value="1"><img src="https://github.com/google/material-design-icons/raw/master/src/navigation/refresh/materialiconsoutlined/24px.svg"></button>
+            <button id="changeAddrsBtn" type="button" data-tooltip="{{ _('Generate new address for each script type') }}" class="btn btn-outline-light" onclick="changeAddrs()" value="1"><img src="https://github.com/google/material-design-icons/raw/master/src/navigation/refresh/materialiconsoutlined/24px.svg"></button>
             <label for="changeAddrsBtn" class="form-label centred">Refresh</label>
         </div>
     </div>
@@ -53,38 +53,38 @@
         <div class="manmenu">
         <nav class="nav flex-column">
             <li class="nav-item">
-                <a class="navbar-brand active" href="/main"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/navigation/home_work/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Home</a>
+                <a class="navbar-brand active" href="/main"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/navigation/home_work/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>{{ _('Home') }}</a>
             </li>
             <hr>
             <li class="nav-item">
-                <a class="navbar-brand" href="/address"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/editor/format_list_numbered/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Addresses</a>
+                <a class="navbar-brand" href="/address"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/editor/format_list_numbered/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>{{ _('Addresses') }}</a>
             </li>
             <hr>
             <li class="nav-item">
-                <a class="navbar-brand" href="/txs"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/action/receipt/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Transactions</a>
+                <a class="navbar-brand" href="/txs"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/action/receipt/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>{{ _('Transactions') }}</a>
             </li>
             <hr>
             <li class="nav-item">
-                <a class="navbar-brand" href="/send"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/communication/call_split/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Send</a>
+                <a class="navbar-brand" href="/send"><img class="menuitemimg" src="https://github.com/google/material-design-icons/raw/master/src/communication/call_split/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>{{ _('Send') }}</a>
             </li>
             <hr>
             <li class="nav-item">
-                <a class="navbar-brand" href="/logout"><img class="menuitemimg" src="https://raw.githubusercontent.com/google/material-design-icons/master/src/navigation/cancel/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>Logout</a>
+                <a class="navbar-brand" href="/logout"><img class="menuitemimg" src="https://raw.githubusercontent.com/google/material-design-icons/master/src/navigation/cancel/materialiconsoutlined/24px.svg" alt="" width="117" height="104" class="d-inline-block align-text-top"><br>{{ _('Logout') }}</a>
             </li>
         </nav>
         </div>
     </div>
     <div id="current_content" class="col-10">
-        <h3 class="centred">Latest transactions</h3>
+        <h3 class="centred">{{ _('Latest transactions') }}</h3>
         <div class="mancon">
             <table class="table table-info table-striped-columns table-fix" id="5latesttx">
                 <thead>
                     <tr>
-                        <th>Value</th>
-                        <th>TX ID</th>
-                        <th>Destination address</th>
-                        <th>Time</th>
-                        <th>Confirmations</th>
+                        <th>{{ _('Value') }}</th>
+                        <th>{{ _('TX ID') }}</th>
+                        <th>{{ _('Destination address') }}</th>
+                        <th>{{ _('Time') }}</th>
+                        <th>{{ _('Confirmations') }}</th>
                     </tr>
                 </thead>
                 <tbody>
