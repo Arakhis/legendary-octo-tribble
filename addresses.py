@@ -1,9 +1,11 @@
 import json
 from wallet import *
 from cryptos import *
+from config import *
 from flask import session
-from hdwallet import *
 from txs import *
+from hdwallet import *
+from hdwallet import HDWallet as HDW
 from hdwallet.symbols import BTC
 
 def get_used_addresses(jdata, page):
@@ -32,17 +34,17 @@ def get_used_addresses(jdata, page):
         else:
             return ''
     except KeyError:
-        return r'<tr class="table-info"><td colspan="2" class="centred">You have no used addresses yet. Try to generate new ones!</td></tr>'
+        return r'<tr class="table-info"><td colspan="2" class="centred">' + gettext('You have no used addresses yet. Try to generate new ones!') + '</td></tr>'
 
 
 def generateAddrs(count, type):
-    xpub = session['HDWallet']
-    hdwallet = HDWallet(symbol=BTC)
+    xpub = session['xp']
+    hdwallet = HDW(symbol=BTC)
     hdwallet = hdwallet.from_xpublic_key(xpub)
     hdwallet.from_index(49, hardened=False)
     hdwallet.from_index(0, hardened=False)
     hdwallet.from_index(0, hardened=False)
-    hdwallet.from_index(7)
+    hdwallet.from_index(random.randrange(2, 30))
     if type == 1:
         addrs = []
         while len(addrs) < count:

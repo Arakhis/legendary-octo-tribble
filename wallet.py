@@ -1,29 +1,26 @@
 import json
 import base58
-import numpy as np
 import qrcode
 from qrcode import *
 from qrcode.image import svg
 import requests
-import pbkdf2
+from config import *
 from hdwallet import *
 from hdwallet import HDWallet as HDW
 from hdwallet.symbols import BTC
 from datetime import datetime as dt
-import bitcoin
 from cryptos import *
 from txs import *
-from pyxtension import Json, racelib, fileutils, streams
-from flask import redirect as redir
-from flask import redirect, url_for, make_response, request, render_template, session, jsonify, Flask
-from blockcypher import get_address_overview
+from flask import session
+
 pointB = 'https://blockchain.info/'
 
+
 def new_addresses():
-    xpub = session['HDWallet']
+    xpub = session['xp']
     hdwallet = HDW(symbol=BTC)
     hdwallet = hdwallet.from_xpublic_key(xpub)
-    hdwallet.from_index(44, hardened=False)
+    hdwallet.from_index(49, hardened=False)
     hdwallet.from_index(0, hardened=False)
     hdwallet.from_index(0, hardened=False)
     hdwallet.from_index(6)
@@ -34,18 +31,22 @@ def new_addresses():
     addresses.append(hdwallet.p2wsh_in_p2sh_address())
     addresses.append(hdwallet.p2wpkh_address())
     addresses.append(r_factor)
-    qrcodepr = make(addresses[1], image_factory=qrcode.image.svg.SvgPathImage)
-    qrcodep = qrcodepr.to_string()
-    addresses.append(qrcodep)
+    session['1a'] = addresses[0]
+    session['3a'] = addresses[1]
+    session['bca'] = addresses[2]
     return addresses
 
-def show_all_mane():
-    return 'OK'
+
+def preqrcode():
+    preqr = qrcode.make(session['3a'], image_factory=qrcode.image.svg.SvgPathImage).to_string()
+    return preqr.decode('utf-8')
+
 
 def get_data(xpub):
     multiaddr = pointB + 'multiaddr?active=' + xpub
     data = requests.get(multiaddr).json()
     return str(json.dumps(data))
+
 
 def get_balance(hdata):
     data = json.loads(hdata)
@@ -56,6 +57,7 @@ def get_balance(hdata):
     except KeyError:
         return 0.00000000
 
+
 def count_pages(data):
     page = 20
     if len(data) > page:
@@ -63,6 +65,7 @@ def count_pages(data):
         return page_count
     else:
         return 1
+
 
 def pagination(page, pages_count, prefix):
     if page == pages_count and page != 1:

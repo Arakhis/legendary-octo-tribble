@@ -1,0 +1,227 @@
+# Translations template for PROJECT.
+# Copyright (C) 2022 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2022-08-14 20:20+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#: addresses.py:36
+msgid "You have no used addresses yet. Try to generate new ones!"
+msgstr ""
+
+#: main.py:127
+msgid "Try to generate new addresses! :)"
+msgstr ""
+
+#: send.py:54
+msgid "Please check you are correct"
+msgstr ""
+
+#: txs.py:71 txs.py:73 txs.py:105 txs.py:107
+msgid "You have no transactions yet"
+msgstr ""
+
+#: templates/address.html:3 templates/address.html:15 templates/main.html:60
+#: templates/send.html:15 templates/txs.html:15
+msgid "Addresses"
+msgstr ""
+
+#: templates/address.html:11 templates/main.html:56 templates/send.html:11
+#: templates/txs.html:11
+msgid "Home"
+msgstr ""
+
+#: templates/address.html:19 templates/main.html:64 templates/send.html:19
+#: templates/txs.html:3 templates/txs.html:19 templates/txs.html:33
+msgid "Transactions"
+msgstr ""
+
+#: templates/address.html:23 templates/main.html:68 templates/send.html:3
+#: templates/send.html:23 templates/send.html:79 templates/txs.html:23
+msgid "Send"
+msgstr ""
+
+#: templates/address.html:27 templates/main.html:72 templates/send.html:27
+#: templates/txs.html:27
+msgid "Logout"
+msgstr ""
+
+#: templates/address.html:33
+msgid "Address generator"
+msgstr ""
+
+#: templates/address.html:36
+msgid "Amount"
+msgstr ""
+
+#: templates/address.html:38
+msgid "Up to 100 string a time"
+msgstr ""
+
+#: templates/address.html:41
+msgid "Script type"
+msgstr ""
+
+#: templates/address.html:47
+msgid ""
+"P2PKH - pay to private key hash, old-style 1** address, uses more weight "
+"in tx and causes more expensive fees. P2WSH in P2SH - pay to witness "
+"script hash nested in pay to script hash, address type start with 3**, "
+"uses less weight than P2PKH and much modern. P2WPKH - pay to witness "
+"public key hash, newest and powerful address type, starts with bc***. "
+"Uses weight less than other types."
+msgstr ""
+
+#: templates/address.html:55
+msgid "Used addresses"
+msgstr ""
+
+#: templates/address.html:60
+msgid "Is Used"
+msgstr ""
+
+#: templates/address.html:61 templates/send.html:37 templates/send.html:38
+msgid "Address"
+msgstr ""
+
+#: templates/index.html:21
+msgid "decentralized Bitcoin wallet"
+msgstr ""
+
+#: templates/index.html:41
+msgid ""
+"decentralized Bitcoin wallet with support of most known <a "
+"href=\"https://en.wikipedia.org/wiki/Bitcoin_Improvement_Proposals\">BIP</a>."
+" We do not have access to your wallets and coins. </p>\n"
+"                <p>New wallets generated using by crypto-calculating your"
+" browser entropy. You can access your coins in any wallet that supports "
+"<a "
+"href=\"https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki\">BIP-39</a>.</p>"
+"\n"
+"                <p>Wallet supports specifying up to 10 coin receivers in "
+"one transaction and have batch address generator and BTC mixing "
+"technology"
+msgstr ""
+
+#: templates/index.html:50 templates/register.html:22
+msgid "Login"
+msgstr ""
+
+#: templates/index.html:51
+msgid "Create new wallet"
+msgstr ""
+
+#: templates/main.html:3
+msgid "Wallet"
+msgstr ""
+
+#: templates/main.html:10
+msgid "Overall balance:"
+msgstr ""
+
+#: templates/main.html:19
+msgid "QR code for Segwit address"
+msgstr ""
+
+#: templates/main.html:45
+msgid "Generate new address for each script type"
+msgstr ""
+
+#: templates/main.html:78
+msgid "Latest transactions"
+msgstr ""
+
+#: templates/main.html:83 templates/send.html:41 templates/send.html:42
+#: templates/txs.html:38
+msgid "Value"
+msgstr ""
+
+#: templates/main.html:84 templates/txs.html:39
+msgid "TX ID"
+msgstr ""
+
+#: templates/main.html:85 templates/txs.html:40
+msgid "Destination address"
+msgstr ""
+
+#: templates/main.html:86 templates/txs.html:41
+msgid "Time"
+msgstr ""
+
+#: templates/main.html:87 templates/txs.html:42
+msgid "Confirmations"
+msgstr ""
+
+#: templates/register.html:3
+msgid "Wallet creation"
+msgstr ""
+
+#: templates/register.html:8
+msgid ""
+"decentralized Bitcoin wallet with support of most known <a "
+"href=\"https://en.wikipedia.org/wiki/Bitcoin_Improvement_Proposals\">BIP</a>."
+" We do not have access to your wallets and coins. </p>\n"
+"                <p>New wallets generated using by crypto-calculating your"
+" browser entropy. You can access your coins in any wallet that supports "
+"<a href=\"\">BIP-39</a>.</p>\n"
+"                <p>Wallet supports specifying up to 10 coin recievers in "
+"one transaction and have batch address generator and BTC mixing "
+"technology"
+msgstr ""
+
+#: templates/register.html:20
+msgid "I saved all"
+msgstr ""
+
+#: templates/send.html:33
+msgid "Create output transaction"
+msgstr ""
+
+#: templates/send.html:37
+msgid "Up to 10 addresses in a time"
+msgstr ""
+
+#: templates/send.html:41
+msgid "Enter amount in BTC. In ex. 0.00004123"
+msgstr ""
+
+#: templates/send.html:53
+msgid "Estimated fee to be included in current block"
+msgstr ""
+
+#: templates/send.html:53
+msgid "Recommended<br> fee"
+msgstr ""
+
+#: templates/send.html:59
+msgid "Weight of your transaction in vBytes. Lesser when use Bech32"
+msgstr ""
+
+#: templates/send.html:59
+msgid "TX<br> size"
+msgstr ""
+
+#: templates/send.html:65
+msgid "Set<br> custom fee"
+msgstr ""
+
+#: templates/send.html:73
+msgid "I only take 3000 satoshis for tx :)"
+msgstr ""
+
+#: templates/send.html:73
+msgid "Calculate fee"
+msgstr ""
+
