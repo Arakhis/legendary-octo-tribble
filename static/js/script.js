@@ -177,7 +177,8 @@ function generateAddrs() {
     var lovBtn = document.createElement('button');
         lovBtn.setAttribute('type', 'button');
         lovBtn.setAttribute('onclick', 'generateAddrs(used=true)');
-        lovBtn.className = 'btn btn-warning';
+        lovBtn.className = 'btn btn-info';
+        lovBtn.setAttribute('style', 'width:100%;')
         lovBtn.innerHTML = '<img src="https://github.com/google/material-design-icons/raw/master/src/device/settings_suggest/materialiconsoutlined/24px.svg">';
     var lovBtnDiv = document.createElement('div');
         lovBtnDiv.id = 'genBtn';
