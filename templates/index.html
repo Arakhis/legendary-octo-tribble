@@ -19,50 +19,49 @@
     <meta name="theme-color" content="#ffffff">
 
     <title>{% block title %}Weeble - {{ _('decentralized Bitcoin wallet') }}{% endblock %}</title>
-
-    <div class="container header">
-        <div class="h-15 row clearfix">
-            <div class="col-8">
-                <a href="/"><img id="logo" class="logo" src="/static/images/logo.png" /></a>
+    {% block header %}
+    <div class="container header shadow">
+            <div class="clearfix">
+                <a class="float-start" href="/"><img id="logo" class="logo img-fluid" src="/static/images/logo.png" /></a>
+                <h5 class="float-end tcr">{{ticker_price}}$ BTC</h5>
             </div>
-            <div class="col-4">
-                <h5 class="tcr">{{ticker_price}}$ BTC</h5>
-            </div>
-        </div>
     </div>
+    {% endblock %}
 </head>
 
 <body>
     <!-- Start your code here -->
-    <div class="container baddy">
+   <div class="container baddy shadow">
    {% block content %}
-        <div class="row">
-            <div class="col-3 opis flex-column">
+        <div class="row row-cols-lg-3 row-cols-md-1 align-self-center">
+            <div class="col-lg-3 d-md-none opis flex-column align-self-center">
                 <p><h3>Weeble</h3> - {{ _('decentralized Bitcoin wallet with support of most known <a href="https://en.wikipedia.org/wiki/Bitcoin_Improvement_Proposals">BIP</a>. We do not have access to your wallets and coins. </p>
                 <p>New wallets generated using by crypto-calculating your browser entropy. You can access your coins in any wallet that supports <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">BIP-39</a>.</p>
                 <p>Wallet supports specifying up to 10 coin receivers in one transaction and have batch address generator and BTC mixing technology') }} <a href="https://en.bitcoin.it/wiki/CoinJoin">CoinJoin</a>.</p>
             </div>
-            <div class="col-6 logreg">
-                <div class="row indexlogo" id="indexlogo">
-                    <img id="inlogo" class="inlogo" src="/static/images/logo.png" />
+            <div class="col-lg-6 col-md-12 logreg align-self-center">
+                <div class="row indexlogo centred" id="indexlogo">
+                    <img id="inlogo" class="inlogo mx-auto" src="/static/images/logo.png" />
                 </div>
                 <div class="row indexBtns">
                     <button type="button" class="btn btn-default btn-lg log" href="#" id="logBtn" onclick="showLoginField()">{{ _('Login') }}</button>
                     <a role="button" class="btn btn-primary btn-lg reg" href="/register" id="regBtn">{{ _('Create new wallet') }}</a>
                 </div>
             </div>
-            <div class="col-3"></div>
+            <div class="col-lg-3 d-md-none opis"></div>
         </div>
     {% endblock %}
     </div>
     <!-- End your code here -->
 </body>
 <footer>
-    <div class="container footer">
+    <div class="container footer shadow">
         {% block footer %}
         <div class="h-15 row">
-            <div class="col-8"></div>
-            <div class="col-4">
+            <div class="col-lg-8 col-md-12 mobindlay">
+                <h6 class="centred d-lg-none mobileabout"><a href="/about">{{ _('About') }}</a></h6>
+            </div>
+            <div class="col-lg-4 d-md-none">
                 <p class="ftr">
                     Powered by Arakhis
                     <br>Based on HTML5

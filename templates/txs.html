@@ -2,9 +2,53 @@
 
 {% block title %}{{ _('Transactions') }} - Weeble{% endblock %}
 
+{% block header %}
+    <div class="container header shadow">
+
+            <div class="clearfix">
+                <button class="navbar-toggler d-lg-none float-start" type="button" data-bs-toggle="offcanvas" data-bs-target="#manmenumob" aria-controls="manmenumob" aria-expanded="false">
+                    <img id="logomenu" class="logo img-fluid" src="/static/images/logo.png" />
+                </button>
+                <a class="float-start d-md-none" href="/"><img id="logo" class="logo img-fluid" src="/static/images/logo.png" /></a>
+                <h5 class="float-end tcr">{{ticker_price}}$ BTC</h5>
+            </div>
+            <div id="manmenumob" class="d-lg-none offcanvas offcanvas-end" tabindex="-1">
+                <div class="bg-like-header offcanvas-header">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close">
+                    </button>
+                    <hr style="color:white;">
+                </div>
+                <div class="bg-like-header offcanvas-body">
+                    <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="navbar-brand mobnavcol" href="/main"><img src="https://github.com/google/material-design-icons/raw/master/src/navigation/home_work/materialiconsoutlined/24px.svg" alt="" class="d-inline-block menuitemimg mobmenuitemimg align-text-left">{{ _('Home') }}</a>
+                    </li>
+                    <hr style="color:white;">
+                    <li class="nav-item">
+                        <a class="navbar-brand mobnavcol" href="/address"><img src="https://github.com/google/material-design-icons/raw/master/src/editor/format_list_numbered/materialiconsoutlined/24px.svg" alt="" class="d-inline-block menuitemimg mobmenuitemimg align-text-left">{{ _('Addresses') }}</a>
+                    </li>
+                    <hr style="color:white;">
+                    <li class="nav-item">
+                        <a class="navbar-brand mobnavcol active" href="#"><img src="https://github.com/google/material-design-icons/raw/master/src/action/receipt/materialiconsoutlined/24px.svg" alt="" class="d-inline-block menuitemimg mobmenuitemimg align-text-left">{{ _('Transactions') }}</a>
+                    </li>
+                    <hr style="color:white;">
+                    <li class="nav-item">
+                        <a class="navbar-brand mobnavcol" href="/send"><img src="https://github.com/google/material-design-icons/raw/master/src/communication/call_split/materialiconsoutlined/24px.svg" alt="" class="d-inline-block menuitemimg mobmenuitemimg align-text-left">{{ _('Send') }}</a>
+                    </li>
+                    <hr style="color:white;">
+                    <li class="nav-item">
+                        <a class="navbar-brand mobnavcol" href="/logout"><img src="https://raw.githubusercontent.com/google/material-design-icons/master/src/navigation/cancel/materialiconsoutlined/24px.svg" alt="" class="d-inline-block menuitemimg mobmenuitemimg align-text-left">{{ _('Logout') }}</a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+{% endblock %}
+
+
 {% block main %}
 <div id="main_window" class="row">
-    <div id="main_menu" class="col-2">
+    <div id="main_menu" class="col-lg-2 d-md-none">
         <div class="manmenu">
         <nav class="nav flex-column">
             <li class="nav-item">
@@ -29,7 +73,7 @@
         </nav>
         </div>
     </div>
-    <div id="current_content" class="col-10">
+    <div id="current_content" class="col-lg-10 col-md-12">
         <h3 class="centred">{{ _('Transactions') }}</h3>
         <div class="mancon">
             <table class="table table-info table-striped-columns table-fix" id="5latesttx">
@@ -57,9 +101,10 @@
 {% endblock %}
 {% block footer %}
         <div class="h-15 row">
-            <div class="col-8">
+            <div class="col-lg-8 col-md-12 mobindlay">
+                <h6 class="centred d-lg-none mobileabout"><a href="/about">{{ _('About') }}</a></h6>
             </div>
-            <div class="col-4">
+            <div class="col-lg-4 d-md-none">
                 <p class="ftr">
                     Powered by Arakhis
                     <br>Based on HTML5
