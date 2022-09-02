@@ -1,11 +1,10 @@
 # Weeble wallet
 
 1. Mobile responsive need test!!!
-
+2. Taproot support(readonly)
 
 TODO:
 
-2. Taproot support
 3. Additional GPG security
 4. Own bitcoin node
 5. P2P place
