@@ -10,7 +10,10 @@
                     <img id="logomenu" class="logo img-fluid" src="/static/images/logo.png" />
                 </button>
                 <a class="float-start d-md-none" href="/"><img id="logo" class="logo img-fluid" src="/static/images/logo.png" /></a>
-                <h5 class="float-end tcr">{{ticker_price}}$ BTC</h5>
+                <h5 class="float-end tcr">{{ticker_price}}$ BTC<br>
+                <img src="https://github.com/lipis/flag-icons/raw/main/flags/4x3/gb.svg" style="border-radius:1px;" width="20" height="15" onclick="changeLang('en')">
+                <img src="https://github.com/lipis/flag-icons/raw/main/flags/4x3/ru.svg" style="border-radius:1px;" width="20" height="15" onclick="changeLang('ru')">
+                </h5>
             </div>
             <div id="manmenumob" class="d-lg-none offcanvas offcanvas-end" tabindex="-1">
                 <div class="bg-like-header offcanvas-header">
@@ -84,11 +87,11 @@
             <div class="col-4">
                 <label for="script-type" class="form-label centred">{{ _('Script type') }}</label>
                 <select id="script-type" class="form-select" aria-describedby="script-type-memo">
-                    <option selected value="3">Segwit-compatible (3***)</option>
-                    <option value="1">Legacy (old-style 1***)</option>
-                    <option value="2">Native Segwit (bc***)</option>
+                    <option value="3">Taproot (bc1p**)</option>
+                    <option value="1">Segwit-compatible (3***)</option>
+                    <option selected value="2">Native Segwit (bc1q**)</option>
                 </select>
-                <span id="script-type-memo" data-tooltip="{{ _('P2PKH - pay to private key hash, old-style 1** address, uses more weight in tx and causes more expensive fees. P2WSH in P2SH - pay to witness script hash nested in pay to script hash, address type start with 3**, uses less weight than P2PKH and much modern. P2WPKH - pay to witness public key hash, newest and powerful address type, starts with bc***. Uses weight less than other types.') }}" class="form-text">P2PKH, P2WSH in P2SH, P2WPKH</span>
+                <span id="script-type-memo" data-tooltip="{{ _('P2WPKH-P2SH - pay to witness public key hash nested in pay to script hash, Segwit-compatible 3** address, uses more weight in tx and causes more expensive fees. P2WPKH(recommended) - pay to witness public key hash, address type start with bc1q**, uses less weight than old addresses and much modern. P2TR - pay to tap root, newest and powerful address type, starts with bc1p**. Uses weight less than other types. Not all wallets and exchanges support this type of script, please check carefully') }}" class="form-text">P2WPKH in P2SH, P2WPKH, P2TR</span>
             </div>
             <div id="genBtn" class="col-2 gen-addr">
                 <button type="button" class="btn btn-info" style="width:100%;" onclick="generateAddrs(used=false)"><img src="https://github.com/google/material-design-icons/raw/master/src/device/settings_suggest/materialiconsoutlined/24px.svg"></button>

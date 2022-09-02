@@ -12,7 +12,10 @@
                     <img id="logomenu" class="logo img-fluid" src="/static/images/logo.png" />
                 </button>
                 <a class="float-start d-md-none" href="/"><img id="logo" class="logo img-fluid" src="/static/images/logo.png" /></a>
-                <h5 class="float-end tcr">{{ticker_price}}$ BTC</h5>
+                <h5 class="float-end tcr">{{ticker_price}}$ BTC<br>
+                <img src="https://github.com/lipis/flag-icons/raw/main/flags/4x3/gb.svg" style="border-radius:1px;" width="20" height="15" onclick="changeLang('en')">
+                <img src="https://github.com/lipis/flag-icons/raw/main/flags/4x3/ru.svg" style="border-radius:1px;" width="20" height="15" onclick="changeLang('ru')">
+                </h5>
             </div>
             <div id="manmenumob" class="d-lg-none offcanvas offcanvas-end" tabindex="-1">
                 <div class="bg-like-header offcanvas-header">
@@ -70,15 +73,15 @@
             <table class="table table-fix">
             <tbody>
             <tr>
-                <th scope="row">Legacy</th>
+                <th scope="row">Segwit v0</th>
                 <td id="cur1">{{current1Address}}</td>
             </tr>
             <tr>
-                <th scope="row">Segwit</th>
+                <th scope="row">Witness v0</th>
                 <td id="cur3">{{current3Address}}</td>
             </tr>
             <tr>
-                <th scope="row">Bech32</th>
+                <th scope="row">Taproot</th>
                 <td id="curb">{{currentbAddress}}</td>
             </tr>
             </tbody>

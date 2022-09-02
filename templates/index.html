@@ -5,9 +5,12 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="/static/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="/static/js/script.js"></script>
+    {% autoescape false %}
+    {{script}}
+    {% endautoescape %}
     <link type="text/css" rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
     <link type="text/css" rel="stylesheet" href="/static/css/style.css"/>
+    <link type="text/css" rel="stylesheet" href="/static/css/flag-icons.min.css"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/static/images/fav/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/static/images/fav/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/static/images/fav/favicon-16x16.png">
@@ -23,7 +26,10 @@
     <div class="container header shadow">
             <div class="clearfix">
                 <a class="float-start" href="/"><img id="logo" class="logo img-fluid" src="/static/images/logo.png" /></a>
-                <h5 class="float-end tcr">{{ticker_price}}$ BTC</h5>
+                <h5 class="float-end tcr">{{ticker_price}}$ BTC<br>
+                <img src="https://github.com/lipis/flag-icons/raw/main/flags/4x3/gb.svg" style="border-radius:1px;" width="20" height="15" onclick="changeLang('en')">
+                <img src="https://github.com/lipis/flag-icons/raw/main/flags/4x3/ru.svg" style="border-radius:1px;" width="20" height="15" onclick="changeLang('ru')">
+                </h5>
             </div>
     </div>
     {% endblock %}
