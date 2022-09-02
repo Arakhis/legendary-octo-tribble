@@ -157,7 +157,7 @@ function calcFees() {
                 var totalfee = document.getElementById('totalFee');
                     totalfee.value = ((data.vsize * fee + 3000) / 100000000);
             } else {
-                    var alert = document.createElement('div');
+                var alert = document.createElement('div');
                     alert.className = 'alert alert-danger';
                     alert.setAttribute('role', 'alert');
                     alert.innerHTML = 'Please check you are correct!';

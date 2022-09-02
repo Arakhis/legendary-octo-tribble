@@ -68,14 +68,14 @@ function addAddrNew(no) {
         addrinput.type = 'text';
         addrinput.className = 'form-control';
         addrinput.id = 'to_address' + no;
-        addrinput.setAttribute('placeholder', 'Address');
+        addrinput.setAttribute('placeholder', 'Адрес');
         addrinput.value = '';
         addrdiv.appendChild(addrinput);
         const suminput = document.createElement('input');
         suminput.type = 'text';
         suminput.className = 'form-control';
         suminput.id = 'sum' + no;
-        suminput.setAttribute('placeholder', 'Value');
+        suminput.setAttribute('placeholder', 'Сумма');
         suminput.value = '';
         sumdiv.appendChild(suminput);
         const deleteAddrBtn = document.createElement('button');
@@ -91,14 +91,14 @@ function addAddrNew(no) {
         addrinput.type = 'text';
         addrinput.className = 'form-control';
         addrinput.id = 'to_address' + no;
-        addrinput.setAttribute('placeholder', 'Address');
+        addrinput.setAttribute('placeholder', 'Адрес');
         addrinput.value = '';
         addrdiv.appendChild(addrinput);
         const suminput = document.createElement('input');
         suminput.type = 'text';
         suminput.className = 'form-control';
         suminput.id = 'sum' + no;
-        suminput.setAttribute('placeholder', 'Value');
+        suminput.setAttribute('placeholder', 'Сумма');
         suminput.value = '';
         sumdiv.appendChild(suminput);
         const deleteAddrBtn = document.createElement('button');
@@ -157,10 +157,10 @@ function calcFees() {
                 var totalfee = document.getElementById('totalFee');
                     totalfee.value = ((data.vsize * fee + 3000) / 100000000);
             } else {
-                    var alert = document.createElement('div');
+                var alert = document.createElement('div');
                     alert.className = 'alert alert-danger';
                     alert.setAttribute('role', 'alert');
-                    alert.innerHTML = 'Please check you are correct!';
+                    alert.innerHTML = 'Проверьте данные!';
                 place.parentNode.insertBefore(alert, place);
             }
         }
@@ -175,19 +175,19 @@ function send() {
             if (d.confirmations == 0) {
                 var link_tx = document.createElement('a');
                     link_tx.href = 'https://mempool.space/ru/tx/' + d.hash;
-                    link_tx.innerHTML = 'Explorer';
+                    link_tx.innerHTML = 'Обозреватель блоков';
                 var place = document.getElementById('mancon');
                 var alert = document.createElement('div');
                     alert.className = 'alert alert-success';
                     alert.setAttribute('role', 'alert');
-                    alert.innerHTML = 'Transaction successfully sent!' + link_tx.outerHTML;
+                    alert.innerHTML = 'Транзакция успешно отправлена!' + link_tx.outerHTML;
                 place.parentNode.insertBefore(alert, place);
             } else {
                 var place = document.getElementById('mancon');
                 var alert = document.createElement('div');
                     alert.className = 'alert alert-danger';
                     alert.setAttribute('role', 'alert');
-                    alert.innerHTML = 'Please check you are correct!';
+                    alert.innerHTML = 'Проверьте данные!';
                 place.parentNode.insertBefore(alert, place);
             }
         });
@@ -212,12 +212,12 @@ function changeAddrs() {
 function generateAddrs() {
     var count = document.getElementById('count').value;
     if (count == null) {
-        alert('Please enter amount');
+        alert('Введите количество!');
         return false;
     } else {
     var span4 = document.createElement('span');
         span4.className = 'visually-hidden';
-        span4.innerHTML = 'Loading...';
+        span4.innerHTML = 'Загрузка...';
     var loading = document.createElement('div');
         loading.id = 'loadingGen';
         loading.className = 'spinner-border text-light col-2';
