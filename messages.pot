@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-08-14 20:20+0300\n"
+"POT-Creation-Date: 2022-08-22 16:25+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,64 +17,85 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.10.3\n"
 
-#: addresses.py:36
+#: addresses.py:37
 msgid "You have no used addresses yet. Try to generate new ones!"
 msgstr ""
 
-#: main.py:127
+#: main.py:150
 msgid "Try to generate new addresses! :)"
 msgstr ""
 
-#: send.py:54
-msgid "Please check you are correct"
-msgstr ""
-
-#: txs.py:71 txs.py:73 txs.py:105 txs.py:107
+#: txs.py:90
 msgid "You have no transactions yet"
 msgstr ""
 
-#: templates/address.html:3 templates/address.html:15 templates/main.html:60
-#: templates/send.html:15 templates/txs.html:15
+#: static/js/script.js:71 static/js/script.js:94 templates/address.html:108
+#: templates/send.html:83 templates/send.html:84
+msgid "Address"
+msgstr ""
+
+#: static/js/script.js:78 static/js/script.js:101 templates/main.html:131
+#: templates/send.html:87 templates/send.html:88 templates/txs.html:85
+msgid "Value"
+msgstr ""
+
+#: static/js/script.js:164
+msgid "Please check you are correct!"
+msgstr ""
+
+#: static/js/script.js:189
+msgid "Loading..."
+msgstr ""
+
+#: templates/address.html:3 templates/address.html:31 templates/address.html:62
+#: templates/main.html:33 templates/main.html:108 templates/send.html:31
+#: templates/send.html:61 templates/txs.html:31 templates/txs.html:62
 msgid "Addresses"
 msgstr ""
 
-#: templates/address.html:11 templates/main.html:56 templates/send.html:11
-#: templates/txs.html:11
+#: templates/address.html:27 templates/address.html:58 templates/main.html:29
+#: templates/main.html:104 templates/send.html:27 templates/send.html:57
+#: templates/txs.html:27 templates/txs.html:58
 msgid "Home"
 msgstr ""
 
-#: templates/address.html:19 templates/main.html:64 templates/send.html:19
-#: templates/txs.html:3 templates/txs.html:19 templates/txs.html:33
+#: templates/address.html:35 templates/address.html:66 templates/main.html:37
+#: templates/main.html:112 templates/send.html:35 templates/send.html:65
+#: templates/txs.html:3 templates/txs.html:35 templates/txs.html:66
+#: templates/txs.html:80
 msgid "Transactions"
 msgstr ""
 
-#: templates/address.html:23 templates/main.html:68 templates/send.html:3
-#: templates/send.html:23 templates/send.html:79 templates/txs.html:23
+#: templates/address.html:39 templates/address.html:70 templates/main.html:41
+#: templates/main.html:116 templates/send.html:3 templates/send.html:39
+#: templates/send.html:69 templates/send.html:125 templates/txs.html:39
+#: templates/txs.html:70
 msgid "Send"
 msgstr ""
 
-#: templates/address.html:27 templates/main.html:72 templates/send.html:27
-#: templates/txs.html:27
+#: templates/address.html:43 templates/address.html:74 templates/main.html:45
+#: templates/main.html:120 templates/send.html:43 templates/send.html:73
+#: templates/txs.html:43 templates/txs.html:74
 msgid "Logout"
 msgstr ""
 
-#: templates/address.html:33
+#: templates/address.html:80
 msgid "Address generator"
 msgstr ""
 
-#: templates/address.html:36
+#: templates/address.html:83
 msgid "Amount"
 msgstr ""
 
-#: templates/address.html:38
+#: templates/address.html:85
 msgid "Up to 100 string a time"
 msgstr ""
 
-#: templates/address.html:41
+#: templates/address.html:88
 msgid "Script type"
 msgstr ""
 
-#: templates/address.html:47
+#: templates/address.html:94
 msgid ""
 "P2PKH - pay to private key hash, old-style 1** address, uses more weight "
 "in tx and causes more expensive fees. P2WSH in P2SH - pay to witness "
@@ -84,23 +105,24 @@ msgid ""
 "Uses weight less than other types."
 msgstr ""
 
-#: templates/address.html:55
+#: templates/address.html:102
 msgid "Used addresses"
 msgstr ""
 
-#: templates/address.html:60
+#: templates/address.html:107
 msgid "Is Used"
 msgstr ""
 
-#: templates/address.html:61 templates/send.html:37 templates/send.html:38
-msgid "Address"
+#: templates/address.html:127 templates/index.html:66 templates/main.html:152
+#: templates/send.html:134 templates/txs.html:108
+msgid "About"
 msgstr ""
 
-#: templates/index.html:21
+#: templates/index.html:22
 msgid "decentralized Bitcoin wallet"
 msgstr ""
 
-#: templates/index.html:41
+#: templates/index.html:42
 msgid ""
 "decentralized Bitcoin wallet with support of most known <a "
 "href=\"https://en.wikipedia.org/wiki/Bitcoin_Improvement_Proposals\">BIP</a>."
@@ -115,11 +137,11 @@ msgid ""
 "technology"
 msgstr ""
 
-#: templates/index.html:50 templates/register.html:22
+#: templates/index.html:51 templates/register.html:22
 msgid "Login"
 msgstr ""
 
-#: templates/index.html:51
+#: templates/index.html:52
 msgid "Create new wallet"
 msgstr ""
 
@@ -127,40 +149,35 @@ msgstr ""
 msgid "Wallet"
 msgstr ""
 
-#: templates/main.html:10
+#: templates/main.html:58
 msgid "Overall balance:"
 msgstr ""
 
-#: templates/main.html:19
+#: templates/main.html:67
 msgid "QR code for Segwit address"
 msgstr ""
 
-#: templates/main.html:45
+#: templates/main.html:93
 msgid "Generate new address for each script type"
 msgstr ""
 
-#: templates/main.html:78
+#: templates/main.html:126
 msgid "Latest transactions"
 msgstr ""
 
-#: templates/main.html:83 templates/send.html:41 templates/send.html:42
-#: templates/txs.html:38
-msgid "Value"
-msgstr ""
-
-#: templates/main.html:84 templates/txs.html:39
+#: templates/main.html:132 templates/txs.html:86
 msgid "TX ID"
 msgstr ""
 
-#: templates/main.html:85 templates/txs.html:40
+#: templates/main.html:133 templates/txs.html:87
 msgid "Destination address"
 msgstr ""
 
-#: templates/main.html:86 templates/txs.html:41
+#: templates/main.html:134 templates/txs.html:88
 msgid "Time"
 msgstr ""
 
-#: templates/main.html:87 templates/txs.html:42
+#: templates/main.html:135 templates/txs.html:89
 msgid "Confirmations"
 msgstr ""
 
@@ -182,46 +199,48 @@ msgid ""
 msgstr ""
 
 #: templates/register.html:20
-msgid "I saved all"
+msgid ""
+"I saved all and understood that my coins only in my own hands. I am "
+"taking all responsibilities on me."
 msgstr ""
 
-#: templates/send.html:33
+#: templates/send.html:79
 msgid "Create output transaction"
 msgstr ""
 
-#: templates/send.html:37
+#: templates/send.html:83
 msgid "Up to 10 addresses in a time"
 msgstr ""
 
-#: templates/send.html:41
+#: templates/send.html:87
 msgid "Enter amount in BTC. In ex. 0.00004123"
 msgstr ""
 
-#: templates/send.html:53
+#: templates/send.html:99
 msgid "Estimated fee to be included in current block"
 msgstr ""
 
-#: templates/send.html:53
+#: templates/send.html:99
 msgid "Recommended<br> fee"
 msgstr ""
 
-#: templates/send.html:59
+#: templates/send.html:105
 msgid "Weight of your transaction in vBytes. Lesser when use Bech32"
 msgstr ""
 
-#: templates/send.html:59
+#: templates/send.html:105
 msgid "TX<br> size"
 msgstr ""
 
-#: templates/send.html:65
+#: templates/send.html:111
 msgid "Set<br> custom fee"
 msgstr ""
 
-#: templates/send.html:73
+#: templates/send.html:119
 msgid "I only take 3000 satoshis for tx :)"
 msgstr ""
 
-#: templates/send.html:73
+#: templates/send.html:119
 msgid "Calculate fee"
 msgstr ""
 

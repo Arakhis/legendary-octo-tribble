@@ -1,12 +1,13 @@
-from main import *
-from addresses import *
-from wallet import *
-from config import *
-from numpy import format_float_positional
 import json
+import requests
+from datetime import datetime as dt
+from numpy import format_float_positional
+from wallet import pointB, get_data
+from flask_babel import gettext
 
 
-def txs_way(data):
+def txs_way():
+    data = get_data()
     txs_ways = []
     i = 0
     while i < len(data):
@@ -48,6 +49,10 @@ def make_tx_table(count, sum, way, address, date, block, txid):
 def get_all_tx(jdata, page=1, last=False):
     data = json.loads(jdata)
     try:
+        data['txs']
+    except KeyError:
+        return r'<tr class="table-info"><td colspan="5" class="centred">' + gettext('You have no transactions yet') + '</td></tr>'
+    if len(data['txs']) > 0:
         txs = data['txs']
         txadresses = []
         txdates = []
@@ -86,6 +91,6 @@ def get_all_tx(jdata, page=1, last=False):
                 y = y + 1
             txsways = txs_way(ways)
             return make_tx_table(20, txsum, txsways, txadresses, txdates, tx_block_heights, txids)
-    except KeyError or TypeError:
+    else:
         return r'<tr class="table-info"><td colspan="5" class="centred">' + gettext('You have no transactions yet') + '</td></tr>'
 

@@ -1,12 +1,8 @@
-import json
-from wallet import *
-from cryptos import *
-from config import *
+from btclib import b58, b32
+from btclib.bip32.bip32 import derive
 from flask import session
-from txs import *
-from hdwallet import *
-from hdwallet import HDWallet as HDW
-from hdwallet.symbols import BTC
+from flask_babel import gettext
+import json
 
 def get_used_addresses(jdata, page):
     data = json.loads(jdata)
@@ -38,30 +34,29 @@ def get_used_addresses(jdata, page):
 
 
 def generateAddrs(count, type):
-    xpub = session['xp']
-    hdwallet = HDW(symbol=BTC)
-    hdwallet = hdwallet.from_xpublic_key(xpub)
-    hdwallet.from_index(49, hardened=False)
-    hdwallet.from_index(0, hardened=False)
-    hdwallet.from_index(0, hardened=False)
-    hdwallet.from_index(random.randrange(2, 30))
+    xpub = session['mpub']
+    n = 20
+    deriv_path = 'm/86/1/15/0/'
     if type == 1:
         addrs = []
-        while len(addrs) < count:
-            hdwallet.from_index(len(addrs))
-            addrs.append(hdwallet.p2pkh_address())
+        while len(set(addrs)) < count:
+            der_xpub = derive(xpub, deriv_path + str(n))
+            addrs.append(b58.p2wpkh_p2sh(der_xpub, network='testnet'))
+            n = n + 1
         return addrs
     elif type == 2:
         addrs = []
-        while len(addrs) < count:
-            hdwallet.from_index(len(addrs))
-            addrs.append(hdwallet.p2wpkh_address())
+        while len(set(addrs)) < count:
+            der_xpub = derive(xpub, deriv_path + str(n))
+            addrs.append(b32.p2wpkh(der_xpub, network='testnet'))
+            n = n + 1
         return addrs
     else:
         addrs = []
-        while len(addrs) < count:
-            hdwallet.from_index(len(addrs))
-            addrs.append(hdwallet.p2wsh_in_p2sh_address())
+        while len(set(addrs)) < count:
+            der_xpub = derive(xpub, deriv_path + str(n))
+            addrs.append(b32.p2tr(der_xpub, network='testnet'))
+            n = n + 1
         return addrs
 
 
