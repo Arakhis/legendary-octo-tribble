@@ -36,26 +36,26 @@ def get_used_addresses(jdata, page):
 def generateAddrs(count, type):
     xpub = session['mpub']
     n = 20
-    deriv_path = 'm/86/1/15/0/'
+    deriv_path = 'm/86/0h/15/0/'
     if type == 1:
         addrs = []
         while len(set(addrs)) < count:
             der_xpub = derive(xpub, deriv_path + str(n))
-            addrs.append(b58.p2wpkh_p2sh(der_xpub, network='testnet'))
+            addrs.append(b58.p2wpkh_p2sh(der_xpub, network='mainnet'))
             n = n + 1
         return addrs
     elif type == 2:
         addrs = []
         while len(set(addrs)) < count:
             der_xpub = derive(xpub, deriv_path + str(n))
-            addrs.append(b32.p2wpkh(der_xpub, network='testnet'))
+            addrs.append(b32.p2wpkh(der_xpub, network='mainnet'))
             n = n + 1
         return addrs
     else:
         addrs = []
         while len(set(addrs)) < count:
             der_xpub = derive(xpub, deriv_path + str(n))
-            addrs.append(b32.p2tr(der_xpub, network='testnet'))
+            addrs.append(b32.p2tr(der_xpub, network='mainnet'))
             n = n + 1
         return addrs
 

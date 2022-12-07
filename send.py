@@ -43,30 +43,30 @@ def make_raw_tx(prvkey, xpub, txaddr, sums, fees):
             if index[0] or index[5]:
                 raw_tx = Transaction(inputs, outputs, fee=fees, fee_per_kb=fees)
                 raw_tx.sign(keys=keys)
-                assert raw_tx.verify() == True
+                assert raw_tx.verify()
                 raw_hex = raw_tx.raw_hex()
                 return raw_hex, raw_tx.vsize
             elif index[3] and not index[0]:
                 raw_tx = Transaction(inputs, outputs, witness_type='segwit', fee=fees, fee_per_kb=fees)
                 raw_tx.sign(keys=keys)
-                assert raw_tx.verify() == True
+                assert raw_tx.verify()
                 raw_hex = raw_tx.raw_hex()
                 return raw_hex, raw_tx.vsize
             elif index[6] and not index[0]:
                 raw_tx = Transaction(inputs, outputs, witness_type='segwit', fee=fees, fee_per_kb=fees)
                 raw_tx.sign(keys=keys, hash_type=SIGHASH_SINGLE)
-                assert raw_tx.verify() == True
+                assert raw_tx.verify()
                 raw_hex = raw_tx.raw_hex()
                 return raw_hex, raw_tx.vsize
             elif index[2] and not index[0] and not index[3]:
                 raw_tx = Transaction(inputs, outputs, witness_type='segwit', fee=fees, fee_per_kb=fees)
                 raw_tx.sign(keys=keys)
-                assert raw_tx.verify() == True
+                assert raw_tx.verify()
                 raw_hex = raw_tx.raw_hex()
                 return raw_hex, raw_tx.vsize
             else:
                 return [], []
-        except KeyError or ValueError or AssertionError:
+        except:
             return 'Error, check values!'
 
 

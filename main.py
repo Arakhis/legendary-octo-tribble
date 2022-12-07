@@ -7,7 +7,7 @@ from send import *
 from wallet import *
 
 app = Flask(__name__)
-app.secret_key = 'dslpkg1523tiuouh33t7hbpzkvcbhp66453gfdjhhgd12'
+app.secret_key = ''
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 babel = Babel(app)
 selected_ticker_name = 'BTCUSDT'
@@ -19,9 +19,9 @@ def js_lang():
 @babel.localeselector
 def get_locale():
     try:
-        session['lang']
+        assert session['lang']
         return session['lang']
-    except KeyError:
+    except:
         return 'en'
 
 
@@ -29,9 +29,9 @@ def get_locale():
 @app.route("/index", methods=["POST"])
 def index_template():
     try:
-        session['mpub']
+        assert session['mpub']
         return redir('/main', 302)
-    except KeyError:
+    except:
         return render_template('index.html', ticker_price=ticker_update(selected_ticker_name), script=js_lang())
 
 
@@ -42,15 +42,15 @@ def chLang():
         resp_data = { 'success':'true' }
         return resp_data, 200
     else:
-        return 404
+        return redir('/main', 301)
 
 
 @app.route("/register")
 def register_template():
     try:
-        session['mpub']
+        assert session['mpub']
         return redir('/main', 302)
-    except KeyError:
+    except:
         return render_template('register.html', ticker_price=ticker_update(selected_ticker_name), newMnemonic=new_mnemonic(), script=js_lang())
 
 
@@ -69,8 +69,8 @@ def login():
 @app.route("/main", methods=["GET", "POST"])
 def main_template():
     try:
-        session['mpub']
-    except KeyError:
+        assert session['mpub']
+    except:
         return redir("/", 301)
     data = get_data()
     balance = get_balance(jdata=data)
@@ -84,8 +84,8 @@ def main_template():
 @app.route("/txs", methods=["GET", "POST"])
 def txs_template(page=1):
     try:
-        session['mpub']
-    except KeyError:
+        assert session['mpub']
+    except:
         return redir("/", 301)
     data = get_data()
     balance = get_balance(data)
@@ -109,8 +109,8 @@ def txs_template(page=1):
 @app.route("/address/<int:page>", methods=["GET", "POST"])
 def address_template(page=1):
     try:
-        session['mpub']
-    except KeyError:
+        assert session['mpub']
+    except:
         return redir("/", 301)
     data = get_data()
     balance = get_balance(data)
@@ -146,8 +146,8 @@ def generate():
 @app.route("/send", methods=["GET", "POST"])
 def send_template():
     try:
-        session['mpub']
-    except KeyError:
+        assert session['mpub']
+    except:
         return redir("/", 301)
     xprv = session['mprv']
     data = get_data()
@@ -184,5 +184,3 @@ def logout():
     return redir('/', 302)
 
 
-if __name__ == '__main__':
-    app.run(host='127.0.0.1')

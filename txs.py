@@ -67,7 +67,7 @@ def get_all_tx(jdata, page=1, last=False):
                 out = curtx['out']
                 zero = out[0]
                 txadresses.append(zero['addr'])
-                txsum.append(format_float_positional(float(curtx['result'] / 100000000), trim='-'))
+                txsum.append(format_float_positional(float(curtx['result'] / 1e-10), trim='-'))
                 ways.append(curtx['result'])
                 txdates.append(curtx['time'])
                 tx_block_heights.append(curtx['block_height'])
@@ -83,7 +83,7 @@ def get_all_tx(jdata, page=1, last=False):
                 out = curtx['out']
                 zero = out[0]
                 txadresses.append(zero['addr'])
-                txsum.append(format_float_positional(float(curtx['result'] / 100000000), trim='-'))
+                txsum.append(format_float_positional(float(curtx['result'] / 1e-10), trim='-'))
                 ways.append(curtx['result'])
                 txdates.append(curtx['time'])
                 tx_block_heights.append(curtx['block_height'])

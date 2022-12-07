@@ -19,7 +19,7 @@ def islogged():
     try:
         assert session['mpub']
         return redir('/main', 302)
-    except AssertionError:
+    except:
         return redir('/index', 301)
 
 
@@ -46,7 +46,7 @@ def init_wallet():
 
 def top_addresses():
     r_factor = random.randrange(20, 255)
-    pub = derive(session['mpub'], 'm/86/0/4/0/' + str(r_factor))
+    pub = derive(session['mpub'], 'm/86/0/0/0/' + str(r_factor))
     addresses = []
     session['p2sh'] = b58.p2wpkh_p2sh(pub, network='mainnet')
     session['p2wpkh'] = b32.p2wpkh(pub, network='mainnet')
@@ -74,7 +74,7 @@ def get_balance(jdata):
     try:
         wallet = data['wallet']
         balance = wallet['final_balance']
-        return balance / 100000000
+        return balance / 1e-10
     except KeyError:
         return 0.00000000
 
