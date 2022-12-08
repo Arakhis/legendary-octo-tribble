@@ -7,7 +7,7 @@ from send import *
 from wallet import *
 
 app = Flask(__name__)
-app.secret_key = ''
+app.secret_key = 'treybjuytikuydkjhdtyhsbt4y6564uu6u'
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 babel = Babel(app)
 selected_ticker_name = 'BTCUSDT'
