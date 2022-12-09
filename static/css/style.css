@@ -5,7 +5,9 @@
 }
 
 .tcr {
-    margin: 2%;
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     text-align: right;
     vertical-align: middle;
     color: white;
@@ -21,7 +23,6 @@
 
 .baddy {
     position: relative;
-    height: 88vh;
     width: 100%;
     background: #dbf3fb;
     border-radius: 14px;
@@ -78,7 +79,6 @@
 
 .balance {
     display: block;
-    height: 150px;
     color: black;
     background: lightblue;
     align-content: center;
@@ -90,7 +90,6 @@
 
 .qrcodeblock {
     display: flex;
-    height: 150px;
     background: lightblue;
     margin-top: 10px;
     align-items: center;
@@ -110,7 +109,6 @@
 
 .current-address {
     display: flex;
-    height: 150px;
     color: black;
     background: lightblue;
     align-content: center;
@@ -126,7 +124,6 @@
 
 .current-address-change {
     display: flex;
-    height: 150px;
     color: black;
     background: lightblue;
     align-content: center;
@@ -181,6 +178,8 @@
     margin-bottom: 30px;
     margin-top: 5px;
     align-content: center;
+    width: 100%;
+    margin-left: 1px;
 }
 
 .sendaddr {
@@ -240,14 +239,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 50%;
 }
 
 .indexlogo {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 45%;
 }
 
 .table-fix {
@@ -275,6 +272,15 @@
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+$grid-breakpoints: (
+  sm: 480px,
+  md: 768px,
+  lg: 940px
+);
+
+
+
 
 @media (max-width: 991px) {
     .header {

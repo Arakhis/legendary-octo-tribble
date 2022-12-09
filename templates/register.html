@@ -4,7 +4,7 @@
 
 {% block content %}
         <div class="row row-cols-lg-3 row-cols-md-1 align-self-center">
-            <div class="col-lg-3 d-md-none opis flex-column align-self-center">
+            <div class="col-lg-3 d-md-none d-lg-block opis flex-column align-self-center">
                 <p><h3>Weeble</h3> - {{ _('decentralized Bitcoin wallet with support of most known <a href="https://en.wikipedia.org/wiki/Bitcoin_Improvement_Proposals">BIP</a>. We do not have access to your wallets and coins. </p>
                 <p>New wallets generated using by crypto-calculating your browser entropy. You can access your coins in any wallet that supports <a href="">BIP-39</a>.</p>
                 <p>Wallet supports specifying up to 10 coin recievers in one transaction and have batch address generator and BTC mixing technology') }} <a href="https://en.bitcoin.it/wiki/CoinJoin">CoinJoin</a>.</p>
@@ -22,6 +22,6 @@
                     <a role="button" class="btn disabled btn-default btn-lg log" href="/main" id="logBtn" onclick="login()">{{ _('Login') }}</a>
                 </div>
             </div>
-            <div class="col-lg-3 d-md-none opis"></div>
+            <div class="col-lg-3 d-md-none d-lg-flex opis"></div>
         </div>
 {% endblock %}

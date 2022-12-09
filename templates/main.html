@@ -11,7 +11,7 @@
                 <button class="navbar-toggler d-lg-none float-start" type="button" data-bs-toggle="offcanvas" data-bs-target="#manmenumob" aria-controls="manmenumob" aria-expanded="false">
                     <img id="logomenu" class="logo img-fluid" src="/static/images/logo.png" />
                 </button>
-                <a class="float-start d-md-none" href="/"><img id="logo" class="logo img-fluid" src="/static/images/logo.png" /></a>
+                <a class="float-start d-md-none d-lg-flex" href="/"><img id="logo" class="logo img-fluid" src="/static/images/logo.png" /></a>
                 <h5 class="float-end tcr">{{ticker_price}}$ BTC<br>
                 <img src="https://github.com/lipis/flag-icons/raw/main/flags/4x3/gb.svg" style="border-radius:1px;" width="20" height="15" onclick="changeLang('en')">
                 <img src="https://github.com/lipis/flag-icons/raw/main/flags/4x3/ru.svg" style="border-radius:1px;" width="20" height="15" onclick="changeLang('ru')">
@@ -52,21 +52,17 @@
 
 {% block content %}
 <div id="overall" class="row overall" xmlns="http://www.w3.org/1999/html">
-    <div id="balance" class="col-lg-2 d-md-none">
-        <div class="balance centred">
+    <div id="balance" class="balance centred col-lg-2 d-md-none d-lg-block">
             <hr>
             <h6>{{ _('Overall balance:') }}</h6>
             <hr>
             <h5>{{balance}} BTC</h5>
             <h5>~{{convertedBalance}} $</h5>
-        </div>
     </div>
-    <div id="current-qrcode" class="col-lg-2 col-md-3">
-        <div class="qrcodeblock">
-            {% autoescape false %}
-            <span id="curQR" data-tooltip="{{ _('QR code for Segwit address') }}" class="qrcode">{{curQrcode}}</span>
-            {% endautoescape %}
-        </div>
+    <div id="current-qrcode" class="qrcodeblock col-lg-2 col-md-3">
+        {% autoescape false %}
+        <span id="curQR" data-tooltip="{{ _('QR code for Segwit address') }}" class="qrcode">{{curQrcode}}</span>
+        {% endautoescape %}
     </div>
     <div id="current_address" class="col-lg-7 col-md-7 current-address">
         <div class="current-address-items">
@@ -96,8 +92,8 @@
     </div>
 </div>
 {% block main %}
-<div id="main_window" class="row">
-    <div id="main_menu" class="col-lg-2 d-md-none">
+<div id="main_window" class="row" style="background: #dbf3fb;">
+    <div id="main_menu" class="col-lg-2 d-md-none d-lg-block">
         <div class="manmenu">
         <nav class="nav flex-column">
             <li class="nav-item">
@@ -151,7 +147,7 @@
             <div class="col-lg-8 col-md-12 mobindlay">
                 <h6 class="centred d-lg-none mobileabout"><a href="/about">{{ _('About') }}</a></h6>
             </div>
-            <div class="col-lg-4 d-md-none">
+            <div class="col-lg-4 d-md-none d-lg-flex">
                 <p class="ftr">
                     Powered by Arakhis
                     <br>Based on HTML5
