@@ -4,8 +4,7 @@
 2. Taproot support(readonly)
 
 TODO:
-JavaScript integration for security reasons
-3. Additional GPG security ?
+3.JavaScript integration for security reasons
 4. Own bitcoin node (for blockchain info)
 5. P2P place (2 of 3 multisig based)
 6. Fast crypto buy (idk how, its illegal)
