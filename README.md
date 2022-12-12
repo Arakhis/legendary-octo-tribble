@@ -4,7 +4,7 @@
 2. Taproot support(readonly)
 
 TODO:
-
+JavaScript integration for security reasons
 3. Additional GPG security ?
 4. Own bitcoin node (for blockchain info)
 5. P2P place (2 of 3 multisig based)
