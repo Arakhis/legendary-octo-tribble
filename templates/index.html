@@ -5,7 +5,9 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-
+    <script type="module">import * from "/static/js/bitcoinjs-lib.js"</script>
+    <script type="module">import "/static/js/bip39.js"</script>
+    <script type="module">import "/static/js/bip32-utils.js"</script>
     {% autoescape false %}
     {{script}}
     {% endautoescape %}
@@ -26,7 +28,7 @@
     <div class="container header shadow">
             <div class="clearfix">
                 <a class="float-start d-md-none d-lg-flex" href="/"><img id="logo" class="logo img-fluid" src="/static/images/logo.png" /></a>
-                <h5 class="float-end tcr">{{ticker_price}}$ BTC<br>
+                <h5 class="float-end tcr"><a id="ticker"></a>$ BTC<br>
                 <img src="https://github.com/lipis/flag-icons/raw/main/flags/4x3/gb.svg" style="border-radius:1px;" width="20" height="15" onclick="changeLang('en')">
                 <img src="https://github.com/lipis/flag-icons/raw/main/flags/4x3/ru.svg" style="border-radius:1px;" width="20" height="15" onclick="changeLang('ru')">
                 </h5>
@@ -50,8 +52,8 @@
                     <img id="inlogo" class="inlogo mx-auto" src="/static/images/logo.png" />
                 </div>
                 <div class="row indexBtns">
-                    <button type="button" class="btn btn-default btn-lg log" href="#" id="logBtn" onclick="showLoginField()">{{ _('Login') }}</button>
-                    <a role="button" class="btn btn-primary btn-lg reg" href="/register" id="regBtn">{{ _('Create new wallet') }}</a>
+                    <button type="button" class="btn btn-default btn-lg log" href="#" id="logBtn" onclick="showLoginField()">{{ _('Login') }}
+                    <button type="button" class="btn btn-primary btn-lg reg" href="#" id="regBtn" onclick="register()">{{ _('Create new wallet') }}</button>
                 </div>
             </div>
             <div class="col-lg-3 d-md-none d-lg-flex opis"></div>

@@ -1,4 +1,4 @@
-from main import babel
+from defer import babel
 from flask import request
 
 LANGUAGES = {

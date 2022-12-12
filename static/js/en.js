@@ -1,4 +1,30 @@
-// Write JavaScript here
+
+function login() {
+    var mnemo = document.getElementById('mnemo').innerHTML;
+    const seed = bip39.mnemonicToSeed(mnemo);
+	const hdKey = bip32.fromSeed(seed);
+	let xpub = hdKey.neutered().toBase58();
+	sessionStorage.setItem("mpub", xpub);
+    window.location = "main.html";
+}
+
+function register() {
+    const mnemo = bip39.generateMnemonic();
+    $("#regBtn").hide();
+    if (document.contains(document.getElementById('mnemo'))){
+        $("#mnemo").remove();
+    }
+    var str = document.createElement('input');
+        str.id = 'mnemo';
+        str.className = 'form-text';
+        str.setAttribute('value', mnemo);
+        str.setAttribute('rows', 4);
+        str.innerHTML = mnemo;
+    var row = document.getElementById('indexlogo');
+        row.appendChild(str);
+    document.getElementById('logBtn').setAttribute("onclick", "login()");
+}
+
 function changeLang(value) {
         $.getJSON('/lang', { 'lang': value }, function(data, textStatus, jqXHR){
             if (data.success == 'true') {
@@ -15,15 +41,7 @@ function showLoginField() {
         str.setAttribute('rows', 4);
     var row = document.getElementById('indexlogo');
         row.appendChild(str);
-    var str2 = document.createElement('a');
-        str2.className = 'btn btn-default btn-lg log';
-        str2.href = '/main';
-        str2.id = 'logBtn';
-        str2.onclick = 'trlogin()';
-        str2.role = 'button';
-        str2.innerHTML = 'Login';
-    var Obj2 = document.getElementById('logBtn');
-    Obj2=str2;
+    document.getElementById('logBtn').onclick = "login()";
 }
 
 function changeBtn() {
@@ -36,16 +54,7 @@ var reg_login = document.getElementById('logBtn');
     }
 }
 
-function login() {
-    var mnemo = document.getElementById('mnemo');
-    var asklog = $.ajax({
-        type: "POST",
-        url: "/login",
-        async: false,
-        contentType: "application/json",
-        data: JSON.stringify({ 'mnemonic_phrase': mnemo.innerHTML })
-    });
-}
+
 
 function trlogin() {
     var mnemo = document.getElementById('mnemo');
@@ -112,6 +121,8 @@ function addAddrNew(no) {
     }
 }
 
+
+
 function deleteAddr(no) {
     var addr = document.getElementById('to_address' + no);
     var sum = document.getElementById('sum' + no);
@@ -155,7 +166,7 @@ function calcFees() {
                 var txsize = document.getElementById('txsize');
                     txsize.innerHTML = data.vsize;
                 var totalfee = document.getElementById('totalFee');
-                    totalfee.value = ((data.vsize * fee + 3000) / 100000000);
+                    totalfee.value = ((data.vsize * fee + 3000) / 1e-10);
             } else {
                 var alert = document.createElement('div');
                     alert.className = 'alert alert-danger';
@@ -192,6 +203,8 @@ function send() {
             }
         });
 }
+
+
 
 
 function changeAddrs() {
@@ -260,3 +273,21 @@ function generateAddrs() {
     };
 }
 
+
+
+//////////////////////////// Ajax Part
+// Update main ticker
+$(document).ready(function(){
+    $.getJSON('https://api.binance.com/api/v3/ticker/price', {'symbol': 'BTCUSDT'}, function(data, textStatus, jqXHR){
+        $("#ticker").text(data.price.split(".")[0]);
+    });
+    if (window.location == "/main"){
+    } else if (window.location == "/address"){
+    } else if (window.location == "/txs"){
+    } else if (window.location == "/send"){
+    } else if (window.location != "/index" && window.location != "/register"){
+    }
+});
+
+
+//

@@ -1,4 +1,4 @@
-from main import *
+from defer import *
 from btclib.script.script_pub_key import *
 from bitcoinlib.transactions import *
 from bitcoinlib.keys import HDKey
